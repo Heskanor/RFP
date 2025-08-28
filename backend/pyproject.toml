@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rfp-buyer-backend"
+version = "0.1.0"
+description = "RFP Buyer Backend API"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "RFP Buyer Team"},
+]
+
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "sqlalchemy>=2.0.23",
+    "psycopg[binary]>=3.1.0",
+    "alembic>=1.13.0",
+    "python-jose[cryptography]>=3.3.0",
+    "httpx>=0.25.0",
+    "langchain-core>=0.1.0",
+    "openai>=1.3.0",
+    "pgvector>=0.2.0",
+    "pydantic[email]>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "python-multipart>=0.0.6",
+    "aiofiles>=23.2.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.7.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
